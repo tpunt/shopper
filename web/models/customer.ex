@@ -5,7 +5,7 @@ defmodule Shopper.Customer do
     belongs_to :post_code, Shopper.PostCode
   end
 
-  @required_fields ~w()
+  @required_fields ~w(post_code_id)
   @optional_fields ~w()
 
   @doc """

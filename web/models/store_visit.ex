@@ -8,7 +8,7 @@ defmodule Shopper.StoreVisit do
     belongs_to :store, Shopper.Store
   end
 
-  @required_fields ~w(visit_date distance_travelled)
+  @required_fields ~w(visit_date distance_travelled customer_id store_id)
   @optional_fields ~w()
 
   @doc """

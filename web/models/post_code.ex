@@ -3,8 +3,8 @@ defmodule Shopper.PostCode do
 
   schema "postcodes" do
     field :post_code, :string, null: false
-    field :longitude, :decimal
-    field :latitude, :decimal
+    field :longitude, :float, precision: 10, scale: 7
+    field :latitude, :float, precision: 10, scale: 7
   end
 
   @required_fields ~w(post_code)
