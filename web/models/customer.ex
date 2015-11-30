@@ -1,12 +1,18 @@
 defmodule Shopper.Customer do
   use Shopper.Web, :model
 
+  @derive {Phoenix.Param, key: :customer_id}
+
+  @primary_key {:customer_id, :integer, []}
   schema "customers" do
-    belongs_to :post_code, Shopper.PostCode
+    field :post_code, :string
+    field :longitude, :float
+    field :latitude, :float
+    has_many :storevisits, Shopper.StoreVisit #, foreign_key: store_visit_id
   end
 
-  @required_fields ~w(post_code_id)
-  @optional_fields ~w()
+  @required_fields ~w(customer_id post_code)
+  @optional_fields ~w(longitude latitude)
 
   @doc """
   Creates a changeset based on the `model` and `params`.
@@ -17,5 +23,6 @@ defmodule Shopper.Customer do
   def changeset(model, params \\ :empty) do
     model
     |> cast(params, @required_fields, @optional_fields)
+    |> Shopper.PostCode.postcode_coords_changeset(params)
   end
 end

@@ -1,14 +1,6 @@
 defmodule Shopper.PostCode do
-  use Shopper.Web, :model
-
-  schema "postcodes" do
-    field :post_code, :string, null: false
-    field :longitude, :float, precision: 10, scale: 7
-    field :latitude, :float, precision: 10, scale: 7
-  end
-
-  @required_fields ~w(post_code)
-  @optional_fields ~w(longitude latitude)
+  # use Shopper.Web, model: Ecto.Changeset
+  import Ecto.Changeset
 
   @api_uri "https://maps.googleapis.com/maps/api/geocode/json"
   @api_key "AIzaSyDyILl9XSufn-8KHEvZ9StZuuRlwsTqmJw"
@@ -19,15 +11,14 @@ defmodule Shopper.PostCode do
   If no params are provided, an invalid changeset is returned
   with no validation performed.
   """
-  def changeset(model, params \\ :empty) do
+  def postcode_changeset(model, _params \\ :empty) do
     model
-    |> cast(params, @required_fields, @optional_fields)
     |> validate_length(:post_code, min: 6, max: 8)
   end
 
   def postcode_coords_changeset(model, params) do
     model
-    |> changeset(params)
+    |> postcode_changeset(params)
     |> get_postcode_coords()
   end
 
@@ -50,6 +41,7 @@ defmodule Shopper.PostCode do
     case request do
       {:ok, %HTTPoison.Response{body: body}} ->
         parsed = Poison.Parser.parse!(body)
+        # what happens if parsed has zero results?
         [address_components] = parsed["results"]
         {:ok, address_components["geometry"]["location"]}
       {:error, %HTTPoison.Error{reason: reason}} ->

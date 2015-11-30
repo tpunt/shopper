@@ -10,8 +10,10 @@ defmodule Shopper.StoreView do
   end
 
   def render("store.json", %{store: store}) do
-    %{id: store.id,
-      store_post_code_id: store.post_code_id,
+    %{store_id: store.store_id,
+      store_post_code: store.post_code,
+      longitude: store.longitude,
+      latitude: store.latitude,
       store_open_date: store.store_open_date}
   end
 end

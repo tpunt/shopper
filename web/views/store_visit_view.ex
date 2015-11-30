@@ -10,7 +10,7 @@ defmodule Shopper.StoreVisitView do
   end
 
   def render("store_visit.json", %{store_visit: store_visit}) do
-    %{id: store_visit.id,
+    %{store_visit_id: store_visit.store_visit_id,
       customer_id: store_visit.customer_id,
       store_id: store_visit.store_id,
       visit_date: store_visit.visit_date,

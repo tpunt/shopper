@@ -11,7 +11,7 @@ defmodule Shopper.StoreVisitController do
   end
 
   def create(conn, %{"store_visit" => store_visit_params}) do
-    changeset = StoreVisit.changeset(%StoreVisit{}, store_visit_params)
+    changeset = StoreVisit.distance_travelled_changeset(%StoreVisit{}, store_visit_params)
 
     case Repo.insert(changeset) do
       {:ok, store_visit} ->

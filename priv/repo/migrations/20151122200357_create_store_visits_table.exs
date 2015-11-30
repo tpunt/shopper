@@ -2,11 +2,14 @@ defmodule Shopper.Repo.Migrations.CreateStoreVisitsTable do
   use Ecto.Migration
 
   def change do
-    create table(:storevisits) do
-      add :customer_id, references(:customers)
-      add :store_id, references(:stores)
+    create table(:storevisits, primary_key: false) do
+      add :store_visit_id, :integer, primary_key: true
+      add :customer_id, references(:customers, [column: :customer_id, type: :integer])
+      add :store_id, references(:stores, [column: :store_id, type: :integer])
       add :visit_date, :date
-      add :distance_travelled, :decimal
+      add :distance_travelled, :decimal, precision: 6, scale: 2
     end
+
+    create index(:storevisits, [:customer_id, :store_id])
   end
 end

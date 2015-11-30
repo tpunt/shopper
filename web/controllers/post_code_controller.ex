@@ -11,7 +11,7 @@ defmodule Shopper.PostCodeController do
   end
 
   def create(conn, %{"post_code" => post_code_params}) do
-    changeset = PostCode.postcode_coords_changeset(%PostCode{}, post_code_params)
+    changeset = PostCode.postcode_coords_changeset(%Shopper.Customer{}, post_code_params)
 
     case Repo.insert(changeset) do
       {:ok, post_code} ->
