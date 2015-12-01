@@ -13,18 +13,14 @@ defmodule Shopper.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", Shopper do
-    pipe_through :browser # Use the default browser stack
-
-    get "/", PageController, :index
-  end
-
   scope "/clientapi", Shopper do
     pipe_through :api
 
     resources "/customers", CustomerController, except: [:new, :edit]
     resources "/postcodes", PostCodeController, except: [:new, :edit]
     resources "/stores", StoreController, except: [:new, :edit]
-    resources "/storevisits", StoreVisitController, except: [:new, :edit]
+    resources "/store_visits", StoreVisitController, except: [:new, :edit]
+
+    get "/customer_visits", CustomerVisitController, :index
   end
 end

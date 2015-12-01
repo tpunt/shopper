@@ -6,7 +6,7 @@ defmodule Shopper.StoreVisit do
   @primary_key {:store_visit_id, :integer, []}
   schema "storevisits" do
     field :visit_date, Ecto.Date
-    field :distance_travelled, :float
+    field :distance_travelled, :decimal
     belongs_to :customer, Shopper.Customer, [references: :customer_id]
     belongs_to :store, Shopper.Store, [references: :store_id]
   end

@@ -7,6 +7,7 @@ defmodule Shopper.StoreVisitController do
 
   def index(conn, _params) do
     storevisits = Repo.all(StoreVisit)
+    IO.inspect storevisits
     render(conn, "index.json", storevisits: storevisits)
   end
 

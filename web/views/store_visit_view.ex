@@ -2,11 +2,11 @@ defmodule Shopper.StoreVisitView do
   use Shopper.Web, :view
 
   def render("index.json", %{storevisits: storevisits}) do
-    %{data: render_many(storevisits, Shopper.StoreVisitView, "store_visit.json")}
+    %{storeVisits: render_many(storevisits, Shopper.StoreVisitView, "store_visit.json")}
   end
 
   def render("show.json", %{store_visit: store_visit}) do
-    %{data: render_one(store_visit, Shopper.StoreVisitView, "store_visit.json")}
+    %{storeVisit: render_one(store_visit, Shopper.StoreVisitView, "store_visit.json")}
   end
 
   def render("store_visit.json", %{store_visit: store_visit}) do
