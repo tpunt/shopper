@@ -6,7 +6,7 @@ defmodule Shopper.StoreVisit do
   @primary_key {:store_visit_id, :integer, []}
   schema "storevisits" do
     field :visit_date, Ecto.Date
-    field :distance_travelled, :decimal
+    field :distance_travelled, :decimal, precision: 6, scale: 2
     belongs_to :customer, Shopper.Customer, [references: :customer_id]
     belongs_to :store, Shopper.Store, [references: :store_id]
   end
@@ -54,6 +54,6 @@ defmodule Shopper.StoreVisit do
     c = 2 * :math.atan2(:math.sqrt(a), :math.sqrt(1 - a))
     distance_miles = r * c * 0.000621371192
 
-    put_change(changeset, :distance_travelled, Float.round(distance_miles, 2))
+    put_change(changeset, :distance_travelled, Decimal.new(Float.round(distance_miles, 2)))
   end
 end
