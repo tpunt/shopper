@@ -1,8 +1,9 @@
 # Shopper
 
-[Overview](#overview)
-[Introduction](#introduction)
-[Application Features](#application-features)
+Contents:
+ - [Overview](#overview)
+ - [Introduction](#introduction)
+ - [Application Features](#application-features)
 
 ## Overview
 
