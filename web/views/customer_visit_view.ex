@@ -12,7 +12,9 @@ defmodule Shopper.CustomerVisitView do
         latitude: customer_visit.latitude
       },
       storeId: customer_visit.store_id,
+      distance: customer_visit.distance,
       distanceTravelled: customer_visit.distance_travelled,
+      timeTravelled: customer_visit.time_travelled,
       visitCount: customer_visit.visit_count
     }
   end

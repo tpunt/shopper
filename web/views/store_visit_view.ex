@@ -14,6 +14,9 @@ defmodule Shopper.StoreVisitView do
       customer_id: store_visit.customer_id,
       store_id: store_visit.store_id,
       visit_date: store_visit.visit_date,
-      distance_travelled: store_visit.distance_travelled}
+      distance: store_visit.distance,
+      distanceTravelled: store_visit.distance_travelled,
+      timeTravelled: store_visit.time_travelled
+    }
   end
 end
