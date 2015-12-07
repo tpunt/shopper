@@ -19,7 +19,7 @@ defmodule Shopper.StoreControllerTest do
     store = Repo.insert! %Store{}
     conn = get conn, store_path(conn, :show, store)
     assert json_response(conn, 200)["data"] == %{"id" => store.id,
-      "store_post_code_id" => store.store_post_code_id,
+      "store_postcode_id" => store.store_postcode_id,
       "store_open_date" => store.store_open_date}
   end
 

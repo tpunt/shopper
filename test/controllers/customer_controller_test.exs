@@ -19,7 +19,7 @@ defmodule Shopper.CustomerControllerTest do
     customer = Repo.insert! %Customer{}
     conn = get conn, customer_path(conn, :show, customer)
     assert json_response(conn, 200)["data"] == %{"id" => customer.id,
-      "customer_post_code_id" => customer.customer_post_code_id}
+      "customer_postcode_id" => customer.customer_postcode_id}
   end
 
   test "does not show resource and instead throw error when id is nonexistent", %{conn: conn} do

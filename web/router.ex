@@ -17,7 +17,7 @@ defmodule Shopper.Router do
     pipe_through :api
 
     resources "/customers", CustomerController, except: [:new, :edit]
-    resources "/postcodes", PostCodeController, except: [:new, :edit]
+    resources "/postcodes", PostcodeController, except: [:new, :edit]
     resources "/stores", StoreController, except: [:new, :edit]
     resources "/store_visits", StoreVisitController, except: [:new, :edit]
 

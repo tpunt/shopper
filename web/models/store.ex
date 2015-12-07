@@ -6,13 +6,13 @@ defmodule Shopper.Store do
   @primary_key {:store_id, :integer, []}
   schema "stores" do
     field :store_open_date, Ecto.Date
-    field :post_code, :string
+    field :postcode, :string
     field :longitude, :float
     field :latitude, :float
     has_many :storevisits, Shopper.StoreVisit #, foreign_key: store_visit_id
   end
 
-  @required_fields ~w(store_id store_open_date post_code)
+  @required_fields ~w(store_id store_open_date postcode)
   @optional_fields ~w(longitude latitude)
 
   @doc """
@@ -24,6 +24,6 @@ defmodule Shopper.Store do
   def changeset(model, params \\ :empty) do
     model
     |> cast(params, @required_fields, @optional_fields)
-    |> Shopper.PostCode.postcode_coords_changeset(params)
+    |> Shopper.Postcode.postcode_coords_changeset(params)
   end
 end

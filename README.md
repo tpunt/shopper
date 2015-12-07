@@ -8,7 +8,7 @@ Contents:
 ## Overview
 
 This application is the server application for mine and
-[Liam Mann's](https://github.com/liammann) Shopper application.
+[Liam Mann](https://github.com/liammann)'s **Shopper** application.
 
 Shopper visualises the spatial distribution of a company’s stores and their
 visiting customer base to provide further business intelligence for arbitrating

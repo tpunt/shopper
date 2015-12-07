@@ -4,7 +4,7 @@ defmodule Shopper.Repo.Migrations.CreateCustomersTable do
   def change do
     create table(:customers, primary_key: false) do
       add :customer_id, :integer, primary_key: true
-      add :post_code, :string
+      add :postcode, :string
       add :longitude, :float
       add :latitude, :float
     end

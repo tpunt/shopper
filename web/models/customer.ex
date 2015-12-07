@@ -5,13 +5,13 @@ defmodule Shopper.Customer do
 
   @primary_key {:customer_id, :integer, []}
   schema "customers" do
-    field :post_code, :string
+    field :postcode, :string
     field :longitude, :float
     field :latitude, :float
     has_many :storevisits, Shopper.StoreVisit #, foreign_key: store_visit_id
   end
 
-  @required_fields ~w(customer_id post_code)
+  @required_fields ~w(customer_id postcode)
   @optional_fields ~w(longitude latitude)
 
   @doc """
@@ -23,6 +23,11 @@ defmodule Shopper.Customer do
   def changeset(model, params \\ :empty) do
     model
     |> cast(params, @required_fields, @optional_fields)
-    |> Shopper.PostCode.postcode_coords_changeset(params)
+  end
+
+  def postcode_coords_changeset(model, params) do
+    model
+    |> changeset(params)
+    |> Shopper.Postcode.postcode_coords_changeset(params)
   end
 end

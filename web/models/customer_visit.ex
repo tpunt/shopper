@@ -26,7 +26,7 @@ defmodule Shopper.CustomerVisit do
       select: %{
         longitude: fragment("(SELECT longitude FROM customers WHERE customer_id = s0.customer_id) as longitude"),
         latitude: fragment("(SELECT latitude FROM customers WHERE customer_id = s0.customer_id) as latitude"),
-        post_code: fragment("(SELECT post_code FROM customers WHERE customer_id = s0.customer_id) as post_code"),
+        postcode: fragment("(SELECT postcode FROM customers WHERE customer_id = s0.customer_id) as postcode"),
         store_id: sv.store_id,
         distance_travelled: sv.distance_travelled,
         visit_count: fragment("COUNT(*)")

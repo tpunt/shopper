@@ -7,7 +7,7 @@ defmodule Shopper.CustomerVisitView do
 
   def render("customer_visit.json", %{customer_visit: customer_visit}) do
     %{customerLocation: %{
-        postCode: customer_visit.post_code,
+        postcode: customer_visit.postcode,
         longitude: customer_visit.longitude,
         latitude: customer_visit.latitude
       },

@@ -14,7 +14,7 @@ defmodule Shopper.StoreView do
       storeId: store.store_id,
       openDate: store.store_open_date,
       storeLocation: %{
-        postCode: store.post_code,
+        postcode: store.postcode,
         latitude: store.latitude,
         longitude: store.longitude
       }

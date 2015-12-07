@@ -10,7 +10,7 @@ defmodule Shopper.CustomerView do
   end
 
   def render("customer.json", %{customer: customer}) do
-    %{customer_id: customer.customer_id, post_code: customer.post_code,
+    %{customer_id: customer.customer_id, postcode: customer.postcode,
       longitude: customer.longitude, latitude: customer.latitude}
   end
 end

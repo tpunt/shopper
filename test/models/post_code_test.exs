@@ -1,18 +1,18 @@
-defmodule Shopper.PostCodeTest do
+defmodule Shopper.PostcodeTest do
   use Shopper.ModelCase
 
-  alias Shopper.PostCode
+  alias Shopper.Postcode
 
-  @valid_attrs %{latitude: "120.5", longitude: "120.5", post_code: "some content"}
+  @valid_attrs %{latitude: "120.5", longitude: "120.5", postcode: "some content"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do
-    changeset = PostCode.changeset(%PostCode{}, @valid_attrs)
+    changeset = Postcode.changeset(%Postcode{}, @valid_attrs)
     assert changeset.valid?
   end
 
   test "changeset with invalid attributes" do
-    changeset = PostCode.changeset(%PostCode{}, @invalid_attrs)
+    changeset = Postcode.changeset(%Postcode{}, @invalid_attrs)
     refute changeset.valid?
   end
 end
